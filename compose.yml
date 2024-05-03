@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:14.5
+    restart: always
+    environment:
+      PGDATA: /data/postgres
+    networks:
+      - api
+    env_file:
+      - .env
+    volumes:
+      - ./.deploy/pgdata:/data/postgres
+
+  api:
+    image: python:3.11.4-alpine3.17
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - api
+
+networks:
+  api:

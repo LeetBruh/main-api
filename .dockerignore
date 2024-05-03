@@ -1,0 +1,7 @@
+.env
+.deploy
+.venv
+compose.yml
+Dockerfile
+.gitignore
+README.md
