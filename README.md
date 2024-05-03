@@ -1,4 +1,4 @@
-# API авторизации для LeetBruh
+# API для LeetBruh
 
 ## Развёртывание
 
